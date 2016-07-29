@@ -1,0 +1,9 @@
+<h2>Todo List</h2>
+<p><i>Pick a todo from the list</i></p>
+<ul>
+    <li *ngFor="let todo of todos" (click)="selectTodo(todo)">
+        {{todo}}
+    </li>
+</ul>
+
+<h1>{{selectedTodo}}</h1>
