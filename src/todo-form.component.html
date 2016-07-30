@@ -1,0 +1,36 @@
+<h1> What do you want to do?</h1>
+<form>
+    <table>
+        <tr>
+            <td>Todo</td>
+            <td>
+                <input type="text" [(ngModel)]="currentTodo.title"/>
+            </td>
+            <tr>
+        <td>Priority</td>
+        <tr>
+        <td>
+            <select [(ngModel)]="currentTodo.priority">
+                <option *ngFor="let priority of [0,1,2]" [value]="priority">
+                    {{priority}}
+                </option>
+            </select>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="createTodo()">
+                    Create Todo
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    Todo List
+
+    <ul>
+        <li *ngFor="let todo of todos">
+            {{todo.title}}, {{todo.priority}}
+        </li>
+    </ul>
+</form>
