@@ -18,7 +18,7 @@
         </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="text-align: center">
                 <button (click)="createTodo()">
                     Create Todo
                 </button>
@@ -26,11 +26,4 @@
         </tr>
     </table>
 
-    Todo List
-
-    <ul>
-        <li *ngFor="let todo of todos">
-            {{todo.title}}, {{todo.priority}}
-        </li>
-    </ul>
 </form>

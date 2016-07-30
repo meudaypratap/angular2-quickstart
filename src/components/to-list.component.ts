@@ -1,17 +1,26 @@
 import { Component, OnInit }   from '@angular/core';
+import {TodoService} from "../services/todo-service";
+
 
 @Component({
     selector:    'todo-list',
-    templateUrl: 'src/todo-list.component.html',
+    templateUrl: 'src/todo-list.component.html'
+    // providers: [TodoService]
 })
 
 export class TodoListComponent implements OnInit {
-    todos: string[];
-    selectedTodo: string;
 
     ngOnInit() {
-        this.todos = ["eat", "drink", "sleep"];
+
     }
 
-    selectTodo(todo: string) { this.selectedTodo = todo; }
+    getTodos(){
+        console.log("todo list", this.todoService.todos.length);
+        return this.todoService.todos;
+    }
+
+
+    constructor(private todoService: TodoService){
+
+    }
 }
