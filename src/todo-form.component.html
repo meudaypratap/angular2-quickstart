@@ -7,8 +7,8 @@
                 <input type="text" [(ngModel)]="currentTodo.title"/>
             </td>
             <tr>
-        <td>Priority</td>
         <tr>
+        <td>Priority</td>
         <td>
             <select [(ngModel)]="currentTodo.priority">
                 <option *ngFor="let priority of [0,1,2]" [value]="priority">
