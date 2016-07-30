@@ -1,0 +1,17 @@
+<form (submit)="addTodo()">
+    <input type="text" name="todo" [(ngModel)]="selectedTodo.name"/>
+    <select name="priority" [(ngModel)]="selectedTodo.priority">
+        <option *ngFor="let priority of priorities" value="{{priority}}">{{priority}}</option>
+    </select>
+    <button type="submit">Create Todo</button>
+</form>
+
+<h2>Todo List</h2>
+<p>
+    Pick a todo from list
+</p>
+<ul>
+    <li *ngFor="let todo of todos" (click)="selectTodo(todo)">
+        <a href="#">{{todo.name}}</a> Priority : {{todo.priority}} <button (click)="removeTodo(todo)">Remove</button>
+    </li>
+</ul>
