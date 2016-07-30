@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo} from './Todo';
+import { TodoService} from '../services/TodoService';
 
 @Component({
     selector: 'todo-list',
-    templateUrl: './templates/todos.html'
+    templateUrl: './templates/todos.html',
+    providers: [TodoService]
 })
 export class TodoListComponent implements OnInit {
-    todos: Todo[];
     selectedTodo: Todo;
     priorities: number[];
+    constructor(private todoService: TodoService){}
+
     ngOnInit() {
-        this.todos = [];
         this.priorities = [1, 2, 3];
         this.selectedTodo = new Todo();
     }
@@ -18,10 +20,10 @@ export class TodoListComponent implements OnInit {
         this.selectedTodo = todo;
     }
     addTodo() {
-        this.todos.push(this.selectedTodo);
+        this.todoService.todos.push(this.selectedTodo);
         this.selectedTodo = new Todo();
     }
     removeTodo(todo: Todo) {
-        this.todos.splice(todo);
+        this.todoService.todos.splice(todo);
     }
 }
